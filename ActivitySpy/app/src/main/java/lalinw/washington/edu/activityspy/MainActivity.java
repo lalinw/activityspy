@@ -8,11 +8,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "FirstActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.v(TAG, "Greetings, UW!");
+        Log.i(TAG, "onCreate() event fired");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -48,5 +53,24 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onStart() {
+        Log.i(TAG, "onStart() event fired");
+        super.onStart();
+    }
+
+    @Override
+    public void onResume() {
+        Log.i(TAG, "onResume() event fired");
+        super.onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        Log.i(TAG, "onDestroy() event fired");
+        Log.e(TAG, "We're going down, Captain!");
+        super.onDestroy();
     }
 }
